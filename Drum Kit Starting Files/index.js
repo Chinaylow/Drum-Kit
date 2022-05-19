@@ -4,7 +4,7 @@ for(let i = 0; i < btn.length; i++ ){
 
 let btnClick = this.innerText;
 clickBand(btnClick);
-    press(this);
+    press(btnClick);
 
 
 
@@ -14,6 +14,7 @@ clickBand(btnClick);
 document.addEventListener('keydown',function(event){
    let keyboard = event.key;
    clickBand(keyboard)
+   press(keyboard);
 
 })
 
@@ -53,10 +54,11 @@ switch (key){
         break;
    
     }}
-    function press(drum){
-        drum.classList.add('pressed');
+    function press(pad){
+        var click = document.querySelector('.' + pad)
+        click.classList.add('pressed');
         setTimeout(function(){
-            drum.classList.remove('pressed');
+            click.classList.remove('pressed');
 
         },300)
     }
